@@ -16,6 +16,7 @@
 const int pinLight = A0;
 
 // Grove - Temperature and Humidity Sensor Pro
+// Interface: Analog
 // http://www.seeedstudio.com/wiki/Grove_-_Temperature_and_Humidity_Sensor_Pro
 #define DHTPIN A1     // what pin we're connected to
 #define DHTTYPE DHT22   // DHT 22  (AM2302)
@@ -23,6 +24,9 @@ DHT dht(DHTPIN, DHTTYPE);
 
 
 // Grove - Barometer (High-Accuracy)
+// Interface: I2C
+// http://www.seeedstudio.com/wiki/Grove_-_Barometer_(High-Accuracy)
+
 unsigned char ret = 0;
 /* Instance */
 KalmanFilter t_filter;    //temperature filter
@@ -30,7 +34,17 @@ KalmanFilter p_filter;    //pressure filter
 KalmanFilter a_filter;    //altitude filter
 
 //====================
+// Grove - LCD RGB Backlight
+// Interface: I2C
+// http://www.seeedstudio.com/wiki/Grove_-_LCD_RGB_Backlight
 rgb_lcd lcd;
+
+
+//====================
+// Grove - Digital Light Sensor
+// Interface: I2C
+// http://www.seeedstudio.com/wiki/Grove_-_Digital_Light_Sensor
+//////
 
 void setup()
 {
