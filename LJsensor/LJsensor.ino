@@ -50,7 +50,9 @@ void setup()
 {
     lcd.begin(16, 2);
     // Configure the serial communication line at 9600 baud (bits per second.)
-    Serial.begin(9600);
+//    Serial.begin(9600);
+
+    Serial.begin(115200);
 
     // Grove - Temperature and Humidity Sensor Pro
     dht.begin();
