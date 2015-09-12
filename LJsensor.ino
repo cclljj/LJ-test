@@ -3,7 +3,6 @@
 #include <KalmanFilter.h>
 
 #include <DHT.h>
-
 #include <rgb_lcd.h>
 #include <Wire.h>
 #include <Arduino.h>
@@ -45,7 +44,7 @@ rgb_lcd lcd;
 // Grove - Digital Light Sensor
 // Interface: I2C
 // http://www.seeedstudio.com/wiki/Grove_-_Digital_Light_Sensor
-//////
+////
 
 void setup()
 {
@@ -158,4 +157,8 @@ long v_long;
     //lcd.print("light: ");
     //lcd.print(v_int);
     
+    // Grove Kit Sensor: temperature 
+    //v_int = analogRead(pinTemp);
+    //float resistance = (float)(1023-v_int)*10000/v_int;
+    //float temperature = 1/(log(resistance/10000)/B+1/298.15)-273.15;
 }
