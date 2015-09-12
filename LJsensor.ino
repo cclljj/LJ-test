@@ -1,3 +1,4 @@
+#include <Digital_Light_TSL2561.h>
 #include <HP20x_dev.h>
 #include <KalmanFilter.h>
 
@@ -52,7 +53,11 @@ void setup()
     // Configure the serial communication line at 9600 baud (bits per second.)
     Serial.begin(9600);
 
+    // Grove - Temperature and Humidity Sensor Pro
     dht.begin();
+
+    // Grove - Digital Light Sensor
+    TSL2561.init();
 
 
     // Grove - Barometer (High-Accuracy)
@@ -80,20 +85,19 @@ int v_int;
 long v_long;
 
     lcd.setRGB(0,0,0);
-    
-    // Grove Kit Sensor: temperature 
-    //v_int = analogRead(pinTemp);
-    //float resistance = (float)(1023-v_int)*10000/v_int;
-    //float temperature = 1/(log(resistance/10000)/B+1/298.15)-273.15;
-    
-    // Grove Kit Sensor: light 
-    v_int = analogRead(pinLight);
 
-
+    // Grove - Digital Light Sensor
+    v_long = TSL2561.readVisibleLux();
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("light: ");
-    lcd.print(v_int);
+    lcd.print(v_long);
+
+    if (v_long<750){
+      lcd.setRGB(0,0,255);
+    } else {
+      lcd.setRGB(0,0,0);
+    }
 
     delay(2000);
 
@@ -109,7 +113,6 @@ long v_long;
       lcd.print("temp: ");
       lcd.print(t);
     
-    
       lcd.setCursor(0,1);
       lcd.print("humid: ");
       lcd.print(h);
@@ -122,8 +125,7 @@ long v_long;
     delay(2000);
 
     // Grove - Barometer (High-Accuracy)
-    if(OK_HP20X_DEV == ret)
-    { 
+    if(OK_HP20X_DEV == ret){ 
       //v_long = HP20x.ReadTemperature();
       //float bt = v_long/100.0;
       v_long = HP20x.ReadPressure();
@@ -145,5 +147,15 @@ long v_long;
       delay(2000);
     }
 
+    // Grove Kit Sensor: temperature 
+    //v_int = analogRead(pinTemp);
+    //float resistance = (float)(1023-v_int)*10000/v_int;
+    //float temperature = 1/(log(resistance/10000)/B+1/298.15)-273.15;
+    // Grove Kit Sensor: light 
+    //v_int = analogRead(pinLight);
+    //lcd.clear();
+    //lcd.setCursor(0, 0);
+    //lcd.print("light: ");
+    //lcd.print(v_int);
     
 }
