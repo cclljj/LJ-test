@@ -157,8 +157,4 @@ long v_long;
     //lcd.print("light: ");
     //lcd.print(v_int);
     
-    // Grove Kit Sensor: temperature 
-    //v_int = analogRead(pinTemp);
-    //float resistance = (float)(1023-v_int)*10000/v_int;
-    //float temperature = 1/(log(resistance/10000)/B+1/298.15)-273.15;
 }
