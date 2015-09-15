@@ -184,7 +184,6 @@ float ba, bp;
     if(!c.connect("api.thingspeak.com", 80)){
       Serial.println("FAIL!");
       Serial.println(LWiFi.localIP());
-//      return;
     } else {
       c.println("POST /update HTTP/1.1");
       c.println("Host: api.thingspeak.com");
