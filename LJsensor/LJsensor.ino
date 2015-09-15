@@ -13,12 +13,12 @@
 //const int B = 3975;
 
 // Grove Kit Sensor: light 
-const int pinLight = A0;
+//const int pinLight = A0;
 
 // Grove - Temperature and Humidity Sensor Pro
 // Interface: Analog
 // http://www.seeedstudio.com/wiki/Grove_-_Temperature_and_Humidity_Sensor_Pro
-#define DHTPIN A1     // what pin we're connected to
+#define DHTPIN A0     // what pin we're connected to
 #define DHTTYPE DHT22   // DHT 22  (AM2302)
 DHT dht(DHTPIN, DHTTYPE);
 
