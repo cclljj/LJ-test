@@ -1,3 +1,6 @@
+#Project Description
+
+This is a environmental monitoring project that measures temperature, relative humiditiy, light, and air pressure of the surroundings. The project is based on MediaTek LinkIt One platform, and all the measurement results are submitted to ThingSpeak.com for archive/visualization. 
 
 #List of the sensors used in this project
 
